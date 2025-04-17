@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #000; /* canvas 배경에 맞게 어두운 색 */
+    color: #fff;
+    overflow-x: hidden;
+    background-attachment: fixed;
+    position: relative;
+  }
+  
+  /* 밤하늘 캔버스 (하트 불꽃놀이) */
+  #firework-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  }
+  
+  /* 헤더 영역 */
+  header {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: rgba(255, 174, 201, 0.1);
+    color: #fff;
+    backdrop-filter: blur(5px);
+  }
+  
+  header h1 {
+    font-size: 3em;
+    animation: pop 1s ease-out infinite alternate;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  @keyframes pop {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+  }
+  
+  /* 메인 섹션 */
+  section {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .timeline-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+  }
+  
+  .timeline-photo {
+    width: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  .love-letter {
+    background: url('images/note-background.png') no-repeat center center;
+    background-size: cover;
+    padding: 30px;
+    border-radius: 20px;
+    line-height: 1.8;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  }
+  
+  /* 하트 버튼 */
+  .heart-button {
+    display: block;
+    margin: 40px auto;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(255,105,180,0.3);
+    transition: transform 0.2s;
+  }
+  
+  .heart-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* 하단 푸터 */
+  footer {
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    backdrop-filter: blur(5px);
+  }
+  
+  /* 하트 날리는 애니메이션 */
+  @keyframes heartUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-150px); opacity: 0; }
+  }
