@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>우리의 100일 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at bottom, #0d1b2a, #000);
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      color: #ffccdd;
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      animation: pop 1s ease-out infinite alternate;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+      color: #fff;
+    }
+
+    .timeline-photo {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .love-letter {
+      font-style: italic;
+      font-size: 1.2em;
+      text-align: center;
+      white-space: pre-line;
+    }
+
+    .heart-button {
+      display: block;
+      margin: 40px auto;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1em;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="fireworks"></canvas>
+
+  <header>
+    <h1>우리 100일 축하해 💖</h1>
+    <p>2025.01.14 ~ ing</p>
+  </header>
+
+  <section>
+    <h2>우리의 추억 타임라인 📸</h2>
+    <div class="timeline-item">
+      <img src="images/첫만남.jpg" alt="첫 데이트 사진" class="timeline-photo" />
+      <h3>첫 데이트 🤝</h3>
+      <p>특별하지 않아도 그냥 같이 있어도 행복한 데이트 💫</p>
+    </div>
+    <div class="timeline-item">
+      <img src="images/부산.jpg" alt="부산 사진" class="timeline-photo" />
+      <h3>부산 여행 🛫</h3>
+      <p>처음 같이 떠난 여행! 바람도 바다도, 네 미소도 다 예뻤어 💙</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>너에게 쓰는 편지 ✉️</h2>
+    <p class="love-letter" id="letter-text"></p>
+  </section>
+
+  <section>
+    <button class="heart-button" onclick="boomHeart()">하트 불꽃놀이 💥💖</button>
+  </section>
+
+  <footer>
+    <p>앞으로도 함께하자 💑</p>
+    <audio controls autoplay loop>
+      <source src="your-music.mp3\[듀엣] 좋아하니까 한국어 커버 _ ( 好きだから cover).mp3" type="audio/mpeg">
+      🎵 사랑 가득한 배경음악 🎵
+    </audio>
+  </footer>
+
+  <script>
+    // 타이핑 애니메이션
+    const message = `여부야… 우리 100일이래
+(진짜 너 안 질린다ㅋㅋ 대단한 사람이야 그리고 어색하지만 편지를 써보겠음!)
+
+사실 나도 좀 놀라고 있음
+나 이렇게 오래 누굴 좋아해본 적 거의 없었거든
+근데 너는… 그냥 처음부터 뭔가 달랐어
+
+같이 있으면 맘이 편하고
+웃긴 얘기하다가 괜히 네 얼굴 보면
+아… 진짜 좋다, 이런 생각 든다니까
+
+중간에 삐진 적도 있었고
+서로 엇갈린 날도 있었지만
+그래도 돌아보면 전부 다 추억이야
+
+네가 울 뻔했을 땐 나도 속상했고
+네가 웃으면 괜히 나도 기분 좋았고
+그게 사랑인가봐.
+
+너랑 같이 있을 때의 내 모습이 난 제일 좋아
+진짜 내가 괜찮은 사람처럼 느껴지기도 하고
+그냥 너 앞에선 좋은 사람이 되고 싶더라
+
+벌써 100일이라니
+잘했다 우리~ 짝짝짝 👏👏
+
+근데 이건 아직 시작인 거 알지?
+200일, 300일, 1년…
+그때마다 더 많이 웃기고, 더 많이 사랑할게
+
+그러니까 앞으로도 내 옆에 있어줘
+약속! 💖
+
+사랑해. 진짜루. 아주 많이. 💘`;
+
+    const letterText = document.getElementById("letter-text");
+    let idx = 0;
+    function typeMessage() {
+      if (idx < message.length) {
+        letterText.innerHTML += message[idx] === "\n" ? "<br>" : message[idx];
+        idx++;
+        setTimeout(typeMessage, 50);
+      }
+    }
+
+    // 하트 불꽃놀이
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+
+    class Particle {
+      constructor(x, y, angle, speed, color) {
+        this.x = x;
+        this.y = y;
+        this.radius = 2 + Math.random() * 2;
+        this.angle = angle;
+        this.speed = speed;
+        this.color = color;
+        this.life = 100;
+      }
+
+      update() {
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        this.life--;
+      }
+
+      draw(ctx) {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+    }
+
+    let particles = [];
+
+    function boomHeart() {
+      const centerX = Math.random() * canvas.width;
+      const centerY = Math.random() * canvas.height * 0.8;
+      const color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+
+      for (let t = 0; t < Math.PI * 2; t += 0.2) {
+        const x = 16 * Math.pow(Math.sin(t), 3);
+        const y = -(
+          13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)
+        );
+
+        for (let i = 0; i < 3; i++) {
+          particles.push(
+            new Particle(centerX, centerY, Math.random() * 2 * Math.PI, Math.random() * 2, color)
+          );
+        }
+
+        particles.push(
+          new Particle(centerX + x * 7, centerY + y * 9, Math.random() * 2 * Math.PI, 2, color)
+        );
+      }
+    }
+
+    function animate() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      particles = particles.filter(p => p.life > 0);
+      particles.forEach(p => {
+        p.update();
+        p.draw(ctx);
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    }
+
+    window.onload = () => {
+      typeMessage();
+      animate();
+      setInterval(boomHeart, 600); // 💥 1초마다 자동 폭죽
+    };
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>
